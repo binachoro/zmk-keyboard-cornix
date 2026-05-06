@@ -35,8 +35,8 @@
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/pointing.h>
 
 / {
     // Activate ADJUST layer by pressing raise and lower
@@ -143,35 +143,63 @@
         };
     };
 
-    combos {
-        compatible = "zmk,combos";
+    combos { compatible = "zmk,combos"; };
 
-        cb_ltm {
-            bindings = <&kp ESC>;
-            key-positions = <2 4>;
-            layers = <0 1>;
+    macros {
+        M_Brace: M_Brace {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_BRACE &kp RIGHT_BRACE &kp LEFT_ARROW>;
+            label = "M_BRACE";
         };
 
-        cb_lm {
-            bindings = <&kp TAB>;
-            key-positions = <14 16>;
-            layers = <0 1>;
+        M_Bracket: M_Bracket {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_BRACKET &kp RIGHT_BRACKET &kp LEFT_ARROW>;
+            label = "M_BRACKET";
         };
 
-        cb_enter {
-            bindings = <&kp RET>;
-            key-positions = <21 19>;
-            layers = <0 1>;
+        M_AngleBracket: M_AngleBracket {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LESS_THAN &kp GREATER_THAN &kp LEFT_ARROW>;
+            label = "M_ANGLEBRACKET";
         };
 
-        layer3 {
-            bindings = <&kp N3>;
-            key-positions = <5 6>;
+        M_Paren: M_Paren {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_PARENTHESIS &kp RIGHT_PARENTHESIS &kp LEFT_ARROW>;
+            label = "M_PAREN";
         };
 
-        layer4 {
-            bindings = <&kp N4>;
-            key-positions = <5 6>;
+        M_DQuote: M_DQuote {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp DOUBLE_QUOTES &kp DOUBLE_QUOTES &kp LEFT_ARROW>;
+            label = "M_DQUOTE";
+        };
+
+        M_SQuote: M_SQuote {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SQT &kp SQT &kp LEFT_ARROW>;
+            label = "M_SQUOTE";
+        };
+
+        M_LessEqual: M_LessEqual {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LESS_THAN &kp EQUAL>;
+            label = "M_LESSEQUAL";
+        };
+
+        M_GreaterEqual: M_GreaterEqual {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp GREATER_THAN &kp EQUAL>;
+            label = "M_GREATEREQUAL";
         };
     };
 
@@ -274,10 +302,10 @@
             //                    |         |         |         |         |         | |      |      |      |       |      |
 
             bindings = <
-&bt BT_CLR      &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4                   &none   &none  &none   &none  &none             &none
-&none           &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_DISC 3  &bt BT_DISC 4                  &tog 1  &to 0  &none   &none  &none             &tog 1
-&bt BT_CLR_ALL  &none          &none          &none          &none          &none          &trans  &trans  &none   &none  &none   &none  &ext_power EP_ON  &kp CAPSLOCK
-&none           &none          &none          &none          &none          &none                          &none   &none  &kp N4  &none  &none             &none
+&trans  &trans  &kp DEL         &msc SCRL_UP    &kp BSPC         &none                     &none           &kp DEL         &mmv MOVE_UP     &kp BSPC         &trans  &trans
+&trans  &none   &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_RIGHT  &mkp MB5                  &msc SCRL_UP    &mmv MOVE_LEFT  &mmv MOVE_DOWN   &mmv MOVE_RIGHT  &trans  &trans
+&trans  &none   &mkp MB2        &mkp MB3        &mkp MB1         &mkp MB4  &trans  &trans  &msc SCRL_DOWN  &msc SCRL_LEFT  &msc SCRL_RIGHT  &none            &trans  &trans
+&trans  &trans  &trans          &trans          &trans           &trans                    &trans          &trans          &trans           &trans           &trans  &trans
             >;
 
             label = "MOUSE";
