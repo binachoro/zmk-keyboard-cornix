@@ -209,10 +209,10 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&trans    &trans         &trans        &trans         &trans               &trans                  &trans  &trans               &trans         &trans        &trans            &trans
-&trans    &hm_l LCTRL A  &hm_l LALT S  &hm_l LCTRL D  &hm_shift_l LSHFT F  &trans                  &trans  &hm_shift_r RSHFT J  &hm_r RCTRL K  &hm_r RALT L  &hm_r RCTRL SEMI  &trans
-&kp LGUI  &trans         &trans        &trans         &trans               &trans  &trans  &trans  &trans  &trans               &trans         &trans        &trans            &trans
-&none     &none          &none         &trans         &trans               &trans                  &trans  &trans               &trans         &none         &none             &none
+&trans  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp PERCENT  &kp BSPC      &kp EQUAL                  &kp COLON       &kp SEMICOLON      &kp TILDE  &trans       &trans                &trans
+&trans  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp HASH     &kp ASTERISK  &kp SLASH                  &kp UNDERSCORE  &kp AMPERSAND      &kp CARET  &kp DOLLAR   &kp NON_US_BACKSLASH  &trans
+&trans  &kp LESS_THAN         &kp GREATER_THAN       &kp GRAVE    &kp PLUS      &trans     &trans  &trans  &kp SQT         &kp DOUBLE_QUOTES  &kp PIPE   &kp AT_SIGN  &kp MINUS             &trans
+&trans  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans       &trans        &trans                     &trans          &trans             &trans     &trans       &trans                &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
