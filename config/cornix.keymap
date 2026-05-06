@@ -143,7 +143,29 @@
         };
     };
 
-    combos { compatible = "zmk,combos"; };
+    combos {
+        compatible = "zmk,combos";
+
+        CB_Brace {
+            bindings = <&M_Brace>;
+            key-positions = <1 2>;
+        };
+
+        CB_Bracket {
+            bindings = <&M_Bracket>;
+            key-positions = <13 14>;
+        };
+
+        CB_AngleBracket {
+            bindings = <&M_AngleBracket>;
+            key-positions = <25 26>;
+        };
+
+        CB_Paren {
+            bindings = <&M_Paren>;
+            key-positions = <39 40>;
+        };
+    };
 
     macros {
         M_Brace: M_Brace {
