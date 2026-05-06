@@ -340,11 +340,15 @@
 
         layer_6 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&kp ESC    &kp Q     &kp W     &kp E   &kp R   &kp T                 &kp Y   &kp U   &kp I   &kp O     &kp P     &kp BSPC
+&kp TAB    &kp A     &kp S     &kp D   &kp F   &kp G                 &kp H   &kp J   &kp K   &kp L     &trans    &kp RET
+&kp LSHFT  &kp Z     &kp X     &kp C   &kp V   &kp B   &none  &none  &kp N   &kp M   &trans  &trans    &trans    &kp RSHFT
+&kp LCTRL  &kp LGUI  &kp LALT  &trans  &trans  &trans                &trans  &trans  &trans  &kp RALT  &kp RGUI  &kp RCTRL
             >;
+
+            sensor-bindings =
+                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
+                <&inc_dec_kp LC(LG(RIGHT_ARROW)) LC(LG(LEFT_ARROW))>;
         };
     };
 };
